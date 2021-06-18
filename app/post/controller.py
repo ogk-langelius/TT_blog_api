@@ -32,6 +32,7 @@ class PostResource(Resource):
 @api.route('/<int:postID>')
 @api.param('postID', 'Post database ID')
 class PostIDResource(Resource):
+    """Single post operations."""
     @responds(schema=PostSchema)
     def get(self, postID: int) -> Post:
         """Get single post by ID."""

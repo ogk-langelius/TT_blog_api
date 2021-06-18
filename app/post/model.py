@@ -16,6 +16,7 @@ class Post(db.Model):
     content = Column(Text(), nullable=False)
 
     def update(self, changes: PostInterface):
+        """Update via dictionary."""
         for column, value in changes.items():
             setattr(self, column, value)
         return self
