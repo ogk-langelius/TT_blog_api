@@ -6,6 +6,7 @@ db = SQLAlchemy()
 
 
 def create_app(env=None):
+    """Create an app using certain configuration."""
     from app.config import config_by_name
     from app.routes import register_routes
 
@@ -15,9 +16,5 @@ def create_app(env=None):
 
     register_routes(api, app)
     db.init_app(app)
-
-    @app.route('/health')
-    def health():
-        return jsonify('healthy')
 
     return app
